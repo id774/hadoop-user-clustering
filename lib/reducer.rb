@@ -27,12 +27,12 @@ class Reducer
 
     i = 0
     result.cluster.values.each {|array|
+      i += 1
       hash = {}
       array.each {|word|
         hash[word] = 1
       }
       reducer_output(i, JSON.generate(hash))
-      i += 1
     }
   end
 
