@@ -18,15 +18,15 @@ class Reducer
       user_hash[key] = hash
     }
 
-    result = Kmeans::Cluster.new(user_hash, {
+    kmeans = Kmeans::Cluster.new(user_hash, {
       :centroids => 100,
       :loop_max => 10
     })
 
-    result.make_cluster
+    kmeans.make_cluster
 
     i = 0
-    result.cluster.values.each {|array|
+    kmeans.cluster.values.each {|array|
       i += 1
       hash = {}
       array.each {|word|
